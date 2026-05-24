@@ -99,11 +99,11 @@ export const projects = [
     url: 'https://github.com/raheshcse/supply-chain-risk-agent',
   },
   {
-  title: 'Autonomous Financial Coordination System',
-  description: 'A full-stack AI governance platform that coordinates financial workflows, fraud analysis, compliance validation, risk escalation, and executive approvals using multi-agent orchestration.',
-  tags: ['React', 'FastAPI', 'LangGraph', 'AI Agents', 'SQLAlchemy'],
+  title: 'Autonomous Procurement Approval Agent',
+  description: 'An AI-powered multi-agent procurement governance system that orchestrates vendor risk analysis, budget validation, approval workflows, escalation handling, and audit monitoring using LangGraph and FastAPI.',
+  tags: ['Python', 'FastAPI', 'LangGraph', 'AI Agents', 'Workflow Orchestration'],
   accent: 'from-cyan-300 to-blue-500',
-  url: 'https://github.com/raheshcse/Autonomous-financial-coordination-system',
+  url: 'https://github.com/raheshcse/Autonomous-procurement-approval-agent',
 }
 
 ]
