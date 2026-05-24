@@ -68,20 +68,19 @@ export const profileHighlights = [
 
 export const projects = [
   {
+    title: 'Autonomous Financial Coordination System',
+    description: 'A full-stack AI-powered financial governance platform designed to simulate fraud analysis, compliance validation, risk escalation, and executive decision-making using multiple AI agents.',
+    tags: ['React', 'FastAPI', 'LangGraph', 'AI Agents'],
+    accent: 'from-blue-200 to-indigo-600',
+    url: 'https://github.com/raheshcse/autonomous-financial-coordination-system',
+  },
+  {
     title: 'AI-Powered System Health Monitor',
     description:
   'A real-time system monitoring dashboard that tracks CPU, memory, and disk metrics with AI-based anomaly detection, live visualization, automated API/UI testing, and Flask-powered backend services.',
     tags: ['Python', 'Flask', 'AI Monitoring', 'Playwright', 'Pytest'],
     accent: 'from-cyan-300 to-blue-500',
     url: 'https://github.com/raheshcse/system-health-monitor',
-  },
-  {
-    title: 'Supply Chain Risk Agent',
-    description:
-    'An AI-powered backend automation system for monitoring supplier risk exposure, generating governance-style operational alerts, and simulating enterprise supply chain risk workflows through API-driven orchestration.',
-    tags: ['FastAPI', 'AI Agents', 'Risk Automation'],
-    accent: 'from-fuchsia-300 to-rose-500',
-    url: 'https://github.com/raheshcse/supply-chain-risk-agent',
   },
   {
     title: 'Store Management System',
@@ -92,10 +91,19 @@ export const projects = [
     url: 'https://github.com/raheshcse/StoreManagementStudio',
   },
   {
-    title: 'Autonomous Financial Coordination System',
-    description: 'A full-stack AI-powered financial governance platform designed to simulate fraud analysis, compliance validation, risk escalation, and executive decision-making using multiple AI agents.',
-    tags: ['React', 'FastAPI', 'LangGraph', 'AI Agents'],
-    accent: 'from-blue-200 to-indigo-600',
-    url: 'https://github.com/raheshcse/autonomous-financial-coordination-system',
+    title: 'Supply Chain Risk Agent',
+    description:
+    'An AI-powered backend automation system for monitoring supplier risk exposure, generating governance-style operational alerts, and simulating enterprise supply chain risk workflows through API-driven orchestration.',
+    tags: ['FastAPI', 'AI Agents', 'Risk Automation'],
+    accent: 'from-fuchsia-300 to-rose-500',
+    url: 'https://github.com/raheshcse/supply-chain-risk-agent',
   },
+  {
+  title: 'Autonomous Financial Coordination System',
+  description: 'A full-stack AI governance platform that coordinates financial workflows, fraud analysis, compliance validation, risk escalation, and executive approvals using multi-agent orchestration.',
+  tags: ['React', 'FastAPI', 'LangGraph', 'AI Agents', 'SQLAlchemy'],
+  accent: 'from-cyan-300 to-blue-500',
+  url: 'https://github.com/raheshcse/Autonomous-financial-coordination-system',
+}
+
 ]
