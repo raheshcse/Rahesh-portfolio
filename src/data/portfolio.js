@@ -68,24 +68,26 @@ export const profileHighlights = [
 
 export const projects = [
   {
-    title: 'AI-Based System Health Monitoring',
+    title: 'AI-Powered System Health Monitor',
     description:
-      'An intelligent monitoring system that tracks CPU, memory, disk, and system performance metrics with AI-driven insights and real-time monitoring capabilities.',
-    tags: ['AI Agents', 'Monitoring', 'System Metrics'],
+  'A real-time system monitoring dashboard that tracks CPU, memory, and disk metrics with AI-based anomaly detection, live visualization, automated API/UI testing, and Flask-powered backend services.',
+    tags: ['Python', 'Flask', 'AI Monitoring', 'Playwright', 'Pytest'],
     accent: 'from-cyan-300 to-blue-500',
     url: 'https://github.com/raheshcse/system-health-monitor',
   },
   {
     title: 'Supply Chain Risk Agent',
-    description: 'A risk-focused agent concept for identifying supplier exposure, surfacing alerts, and supporting better operational decisions.',
-    tags: ['AI Agents', 'Cybersecurity', 'Risk'],
+    description:
+    'An AI-powered backend automation system for monitoring supplier risk exposure, generating governance-style operational alerts, and simulating enterprise supply chain risk workflows through API-driven orchestration.',
+    tags: ['FastAPI', 'AI Agents', 'Risk Automation'],
     accent: 'from-fuchsia-300 to-rose-500',
     url: 'https://github.com/raheshcse/supply-chain-risk-agent',
   },
   {
     title: 'Store Management System',
-    description: 'A business operations system for inventory, sales, and store workflows with structured data and practical admin features.',
-    tags: ['ASP.NET Core', 'C#', 'React','SQL Server'],
+    description:
+    'A full-stack business management application for handling customers, products, stores, and sales with RESTful APIs, SQL Server data storage, and a clean admin dashboard.',
+    tags: ['ASP.NET Core', 'C#', 'React', 'Redux Toolkit', 'SQL Server', 'Azure'],
     accent: 'from-emerald-300 to-teal-500',
     url: 'https://github.com/raheshcse/StoreManagementStudio',
   },
