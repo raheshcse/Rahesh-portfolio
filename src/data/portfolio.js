@@ -85,7 +85,7 @@ export const projects = [
   {
     title: 'Store Management System',
     description: 'A business operations system for inventory, sales, and store workflows with structured data and practical admin features.',
-    tags: ['ASP.NET Core', 'C#', 'SQL Server'],
+    tags: ['ASP.NET Core', 'C#', 'React','SQL Server'],
     accent: 'from-emerald-300 to-teal-500',
     url: 'https://github.com/raheshcse/StoreManagementStudio',
   },
