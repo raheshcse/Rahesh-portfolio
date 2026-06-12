@@ -2,9 +2,16 @@ import { motion } from 'framer-motion'
 import AnimatedBackground from './components/AnimatedBackground'
 import GlassCard from './components/GlassCard'
 import Section from './components/Section'
-import { profileHighlights, projects, skills, stackBadges } from './data/portfolio'
+import { projectCategories, skills, stackBadges } from './data/portfolio'
 
 const navLinks = ['About', 'Skills', 'Projects', 'Contact']
+const portfolioStats = [
+  { value: '8+', label: 'Projects Built' },
+  { value: '3', label: 'AI Agent Systems' },
+  { value: '3', label: 'Full-Stack Applications' },
+  { value: '2', label: 'Mobile Applications' },
+]
+const profileTechnologies = ['C#', '.NET', 'React', 'SQL Server', 'Python', 'FastAPI', 'Azure', 'LangGraph']
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
@@ -117,47 +124,63 @@ function App() {
         </section>
 
         <Section id="about" eyebrow="About & Experience" title="AI, full-stack, and cybersecurity focus">
-          <div className="grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
-            <GlassCard className="p-6 sm:p-8">
-              <p className="text-base leading-8 text-slate-300 sm:text-lg">
-                I am an AI & Full Stack Engineer building intelligent, secure, and scalable
-                applications with a practical engineering mindset. My work connects AI agents,
-                modern frontend experiences, backend systems, databases, and cybersecurity-aware
-                design so projects feel polished, reliable, and useful.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                {['AI Engineering', 'Full Stack', 'Cybersecurity', 'Product Delivery'].map((focus) => (
-                  <span key={focus} className="rounded-full border border-cyan-200/15 bg-cyan-200/[0.08] px-4 py-2 text-sm font-semibold text-cyan-100">
-                    {focus}
-                  </span>
-                ))}
-              </div>
-            </GlassCard>
-
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.2 }}
-              variants={container}
-              className="grid gap-4 sm:grid-cols-2"
-            >
-              {profileHighlights.map((section) => (
-                <motion.div key={section.title} variants={fadeUp}>
-                  <GlassCard className="h-full p-5">
-                    <h3 className="text-lg font-bold text-white">{section.title}</h3>
-                    <ul className="mt-4 space-y-3 text-sm leading-6 text-slate-400">
-                      {section.items.map((item) => (
-                        <li key={item} className="flex gap-3">
-                          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-300" />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </GlassCard>
-                </motion.div>
-              ))}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={container}
+            className="grid gap-5 lg:grid-cols-[1.05fr_0.95fr]"
+          >
+            <motion.div variants={fadeUp}>
+              <GlassCard className="h-full p-6 sm:p-8">
+                <p className="text-sm font-semibold uppercase tracking-[0.24em] text-cyan-300">Professional Summary</p>
+                <h3 className="mt-4 text-2xl font-black text-white sm:text-3xl">AI & Full-Stack Engineer</h3>
+                <p className="mt-5 text-base leading-8 text-slate-300 sm:text-lg">
+                  I build intelligent, secure, and scalable applications with a practical engineering mindset.
+                  My work connects AI agents, modern frontend experiences, backend systems, databases, and
+                  cybersecurity-aware design into polished software that feels reliable, useful, and ready for real users.
+                </p>
+                <p className="mt-4 text-sm leading-7 text-slate-400 sm:text-base">
+                  I focus on clear product value, maintainable implementation, and recruiter-friendly project delivery
+                  across AI systems, full-stack applications, and mobile experiences.
+                </p>
+                <div className="mt-8 flex flex-wrap gap-3">
+                  {['AI Engineering', 'Full Stack', 'Cybersecurity', 'Product Delivery'].map((focus) => (
+                    <span key={focus} className="rounded-full border border-cyan-200/15 bg-cyan-200/[0.08] px-4 py-2 text-sm font-semibold text-cyan-100">
+                      {focus}
+                    </span>
+                  ))}
+                </div>
+              </GlassCard>
             </motion.div>
-          </div>
+
+            <motion.div variants={fadeUp}>
+              <GlassCard className="h-full p-6 sm:p-8">
+                <p className="text-sm font-semibold uppercase tracking-[0.24em] text-cyan-300">Portfolio Highlights</p>
+                <h3 className="mt-4 text-2xl font-black text-white sm:text-3xl">Built across product domains</h3>
+
+                <div className="mt-7 grid gap-3 sm:grid-cols-2">
+                  {portfolioStats.map((stat) => (
+                    <div key={stat.label} className="rounded-2xl border border-white/10 bg-white/[0.06] p-4">
+                      <div className="text-3xl font-black text-white">{stat.value}</div>
+                      <div className="mt-2 text-sm font-semibold text-slate-300">{stat.label}</div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-8 border-t border-white/10 pt-6">
+                  <p className="text-sm font-bold text-white">Technology Summary</p>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {profileTechnologies.map((technology) => (
+                      <span key={technology} className="rounded-full bg-slate-900/80 px-3 py-1 text-xs font-semibold text-cyan-100 ring-1 ring-white/10">
+                        {technology}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </GlassCard>
+            </motion.div>
+          </motion.div>
         </Section>
 
         <Section id="skills" eyebrow="Skills" title="A practical stack for intelligent secure apps">
@@ -191,43 +214,50 @@ function App() {
         </Section>
 
         <Section id="projects" eyebrow="Projects" title="Selected builds with product value">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.15 }}
-            variants={container}
-            className="grid gap-5 md:grid-cols-2"
-          >
-            {projects.map((project) => (
-              <motion.article key={project.title} variants={fadeUp}>
-                <GlassCard className="group h-full overflow-hidden transition duration-300 hover:-translate-y-1 hover:border-cyan-200/35">
-                  <a
-                    href={project.url || 'https://github.com/raheshcse?tab=repositories'}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="block h-full p-6"
-                    aria-label={`Open ${project.title} repository on GitHub`}
-                  >
-                  <div className={`mb-6 h-2 w-24 rounded-full bg-gradient-to-r ${project.accent}`} />
-                  <div className="flex items-start justify-between gap-4">
-                    <h3 className="text-2xl font-bold text-white">{project.title}</h3>
-                    <span className="rounded-full border border-white/10 bg-white/[0.08] px-3 py-1 text-xs font-bold text-cyan-100 transition group-hover:border-cyan-200/50 group-hover:text-white">
-                      GitHub
-                    </span>
-                  </div>
-                  <p className="mt-4 text-sm leading-7 text-slate-400">{project.description}</p>
-                  <div className="mt-6 flex flex-wrap gap-2">
-                    {project.tags.map((tag) => (
-                      <span key={tag} className="rounded-full bg-slate-900/80 px-3 py-1 text-xs font-semibold text-cyan-100 ring-1 ring-white/10">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  </a>
-                </GlassCard>
-              </motion.article>
+          <div className="space-y-12">
+            {projectCategories.map((category) => (
+              <div key={category.title}>
+                <h3 className="mb-5 text-xl font-black text-white sm:text-2xl">{category.title}</h3>
+                <motion.div
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.15 }}
+                  variants={container}
+                  className="grid gap-5 md:grid-cols-2"
+                >
+                  {category.projects.map((project) => (
+                    <motion.article key={project.title} variants={fadeUp}>
+                      <GlassCard className="group h-full overflow-hidden transition duration-300 hover:-translate-y-1 hover:border-cyan-200/35">
+                        <a
+                          href={project.url || 'https://github.com/raheshcse?tab=repositories'}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="block h-full p-6"
+                          aria-label={`Open ${project.title} repository on GitHub`}
+                        >
+                        <div className={`mb-6 h-2 w-24 rounded-full bg-gradient-to-r ${project.accent}`} />
+                        <div className="flex items-start justify-between gap-4">
+                          <h3 className="text-2xl font-bold text-white">{project.title}</h3>
+                          <span className="rounded-full border border-white/10 bg-white/[0.08] px-3 py-1 text-xs font-bold text-cyan-100 transition group-hover:border-cyan-200/50 group-hover:text-white">
+                            GitHub
+                          </span>
+                        </div>
+                        <p className="mt-4 text-sm leading-7 text-slate-400">{project.description}</p>
+                        <div className="mt-6 flex flex-wrap gap-2">
+                          {project.tags.map((tag) => (
+                            <span key={tag} className="rounded-full bg-slate-900/80 px-3 py-1 text-xs font-semibold text-cyan-100 ring-1 ring-white/10">
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                        </a>
+                      </GlassCard>
+                    </motion.article>
+                  ))}
+                </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </Section>
 
         <Section id="contact" eyebrow="Contact" title="Let's build something useful">
