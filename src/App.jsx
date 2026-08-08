@@ -2,16 +2,18 @@ import { motion } from 'framer-motion'
 import AnimatedBackground from './components/AnimatedBackground'
 import GlassCard from './components/GlassCard'
 import Section from './components/Section'
-import { projectCategories, skills, stackBadges } from './data/portfolio'
+import {
+  certifications,
+  education,
+  experience,
+  profileHighlights,
+  projectCategories,
+  skills,
+  stackBadges,
+} from './data/portfolio'
 
-const navLinks = ['About', 'Skills', 'Projects', 'Contact']
-const portfolioStats = [
-  { value: '8+', label: 'Projects Built' },
-  { value: '3', label: 'AI Agent Systems' },
-  { value: '3', label: 'Full-Stack Applications' },
-  { value: '2', label: 'Mobile Applications' },
-]
-const profileTechnologies = ['C#', '.NET', 'React', 'SQL Server', 'Python', 'FastAPI', 'Azure', 'LangGraph']
+const navLinks = ['About', 'Experience', 'Skills', 'Projects', 'Education', 'Contact']
+const profileTechnologies = ['Python', 'C#', '.NET', 'React', 'FastAPI', 'SQL', 'LangGraph', 'Azure']
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
@@ -27,7 +29,86 @@ const container = {
   },
 }
 
+function SkillCategory({ category }) {
+  return (
+    <motion.div variants={fadeUp}>
+      <GlassCard className="h-full p-5 sm:p-6">
+        <h3 className="text-lg font-black text-white">{category.title}</h3>
+        <div className="mt-4 flex flex-wrap gap-2">
+          {category.items.map((item) => (
+            <span
+              key={item}
+              className="rounded-full border border-white/10 bg-slate-900/80 px-3 py-1.5 text-xs font-medium text-cyan-100 ring-1 ring-white/10"
+            >
+              {item}
+            </span>
+          ))}
+        </div>
+      </GlassCard>
+    </motion.div>
+  )
+}
+
+function ProjectCard({ project }) {
+  return (
+    <motion.article variants={fadeUp}>
+      <GlassCard className="group h-full overflow-hidden transition duration-300 hover:-translate-y-1 hover:border-cyan-200/35">
+        <div className="h-full p-6">
+          <div className={`mb-5 h-2 w-24 rounded-full bg-gradient-to-r ${project.accent}`} />
+          <div className="flex items-start justify-between gap-3">
+            <h3 className="break-words text-xl font-bold leading-snug text-white sm:text-2xl">{project.title}</h3>
+            <a
+              href={project.url || 'https://github.com/raheshcse?tab=repositories'}
+              target="_blank"
+              rel="noreferrer"
+              className="shrink-0 rounded-full border border-white/10 bg-white/[0.08] px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.12em] text-cyan-100 transition group-hover:border-cyan-200/50 group-hover:text-white"
+              aria-label={`Open ${project.title} repository on GitHub`}
+            >
+              GitHub
+            </a>
+          </div>
+          <p className="mt-4 text-sm leading-7 text-slate-400">{project.description}</p>
+          <div className="mt-6 flex flex-wrap gap-2">
+            {project.tags.map((tag) => (
+              <span
+                key={tag}
+                className="rounded-full bg-slate-900/80 px-3 py-1 text-[11px] font-semibold text-cyan-100 ring-1 ring-white/10"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+      </GlassCard>
+    </motion.article>
+  )
+}
+
+function ProjectCategory({ category }) {
+  return (
+    <div>
+      <div className="mb-5 flex items-center gap-3">
+        <span className="h-2.5 w-2.5 rounded-full bg-cyan-300" />
+        <h3 className="text-xl font-black text-white sm:text-2xl">{category.title}</h3>
+      </div>
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.15 }}
+        variants={container}
+        className="grid gap-5 md:grid-cols-2"
+      >
+        {category.projects.map((project) => (
+          <ProjectCard key={project.title} project={project} />
+        ))}
+      </motion.div>
+    </div>
+  )
+}
+
 function App() {
+  const projectCount = projectCategories.reduce((total, category) => total + category.projects.length, 0)
+
   return (
     <main className="relative min-h-screen overflow-hidden bg-[#05070d] text-slate-100">
       <AnimatedBackground />
@@ -67,11 +148,11 @@ function App() {
               variants={fadeUp}
               className="mt-4 bg-gradient-to-r from-cyan-200 via-fuchsia-200 to-emerald-200 bg-clip-text text-2xl font-bold text-transparent sm:text-4xl"
             >
-              AI & Full Stack Engineer
+              AI & Full-Stack Engineer
             </motion.h2>
             <motion.p variants={fadeUp} className="mt-6 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
-              Building intelligent, secure, and scalable applications using AI, full stack
-              technologies, and cybersecurity principles.
+              AI & Full-Stack Engineer building intelligent software systems across AI agents, data pipelines,
+              backend APIs, modern web applications, and mobile platforms.
             </motion.p>
             <motion.div variants={fadeUp} className="mt-9 flex flex-col gap-3 sm:flex-row">
               <a
@@ -106,14 +187,19 @@ function App() {
                 </div>
                 <pre className="overflow-hidden text-sm leading-7 text-slate-300 sm:text-base">
                   <code>{`const rahesh = {
-  focus: ['AI Agents', 'Cybersecurity'],
-  stack: ['React', 'C#', 'SQL Server'],
-  mission: 'ship secure intelligent apps'
+  focus: ['AI Agents', 'Full-Stack'],
+  stack: ['Python', 'C#', 'React'],
+  mission: 'build end-to-end intelligent systems'
 }`}</code>
                 </pre>
               </div>
               <div className="mt-6 grid grid-cols-2 gap-3">
-                {['4 Featured Projects', '8 Core Technologies', 'Secure by Design', 'Recruiter Friendly'].map((item) => (
+                {[
+                  `${projectCount} Projects`,
+                  `${projectCategories.length} Categories`,
+                  'Full Lifecycle Delivery',
+                  'Recruiter Ready',
+                ].map((item) => (
                   <div key={item} className="rounded-2xl border border-white/10 bg-white/[0.08] p-4 text-sm font-semibold text-slate-200">
                     {item}
                   </div>
@@ -123,7 +209,7 @@ function App() {
           </motion.div>
         </section>
 
-        <Section id="about" eyebrow="About & Experience" title="AI, full-stack, and cybersecurity focus">
+        <Section id="about" eyebrow="About" title="AI, full-stack, and product engineering across the full lifecycle">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -136,17 +222,21 @@ function App() {
                 <p className="text-sm font-semibold uppercase tracking-[0.24em] text-cyan-300">Professional Summary</p>
                 <h3 className="mt-4 text-2xl font-black text-white sm:text-3xl">AI & Full-Stack Engineer</h3>
                 <p className="mt-5 text-base leading-8 text-slate-300 sm:text-lg">
-                  I build intelligent, secure, and scalable applications with a practical engineering mindset.
-                  My work connects AI agents, modern frontend experiences, backend systems, databases, and
-                  cybersecurity-aware design into polished software that feels reliable, useful, and ready for real users.
+                  AI & Full-Stack Engineer building intelligent software systems across AI agents, data pipelines,
+                  backend APIs, modern web applications, and mobile platforms. I work across the full solution lifecycle —
+                  from data ingestion and AI workflow orchestration to API development, dashboards, testing, deployment,
+                  and responsible AI design.
                 </p>
                 <p className="mt-4 text-sm leading-7 text-slate-400 sm:text-base">
-                  I focus on clear product value, maintainable implementation, and recruiter-friendly project delivery
-                  across AI systems, full-stack applications, and mobile experiences.
+                  My projects include multi-agent systems, RAG knowledge platforms, machine-learning pipelines,
+                  observability tools, enterprise applications, and mobile products.
                 </p>
                 <div className="mt-8 flex flex-wrap gap-3">
-                  {['AI Engineering', 'Full Stack', 'Cybersecurity', 'Product Delivery'].map((focus) => (
-                    <span key={focus} className="rounded-full border border-cyan-200/15 bg-cyan-200/[0.08] px-4 py-2 text-sm font-semibold text-cyan-100">
+                  {['AI Engineering', 'Full-Stack', 'ML & Data', 'Responsible AI'].map((focus) => (
+                    <span
+                      key={focus}
+                      className="rounded-full border border-cyan-200/15 bg-cyan-200/[0.08] px-4 py-2 text-sm font-semibold text-cyan-100"
+                    >
                       {focus}
                     </span>
                   ))}
@@ -156,23 +246,25 @@ function App() {
 
             <motion.div variants={fadeUp}>
               <GlassCard className="h-full p-6 sm:p-8">
-                <p className="text-sm font-semibold uppercase tracking-[0.24em] text-cyan-300">Portfolio Highlights</p>
+                <p className="text-sm font-semibold uppercase tracking-[0.24em] text-cyan-300">Engineering Highlights</p>
                 <h3 className="mt-4 text-2xl font-black text-white sm:text-3xl">Built across product domains</h3>
 
                 <div className="mt-7 grid gap-3 sm:grid-cols-2">
-                  {portfolioStats.map((stat) => (
-                    <div key={stat.label} className="rounded-2xl border border-white/10 bg-white/[0.06] p-4">
-                      <div className="text-3xl font-black text-white">{stat.value}</div>
-                      <div className="mt-2 text-sm font-semibold text-slate-300">{stat.label}</div>
+                  {profileHighlights.map((item) => (
+                    <div key={item} className="rounded-2xl border border-white/10 bg-white/[0.06] p-4 text-sm font-semibold text-slate-200">
+                      {item}
                     </div>
                   ))}
                 </div>
 
                 <div className="mt-8 border-t border-white/10 pt-6">
-                  <p className="text-sm font-bold text-white">Technology Summary</p>
+                  <p className="text-sm font-bold text-white">Core Stack</p>
                   <div className="mt-4 flex flex-wrap gap-2">
                     {profileTechnologies.map((technology) => (
-                      <span key={technology} className="rounded-full bg-slate-900/80 px-3 py-1 text-xs font-semibold text-cyan-100 ring-1 ring-white/10">
+                      <span
+                        key={technology}
+                        className="rounded-full bg-slate-900/80 px-3 py-1 text-xs font-semibold text-cyan-100 ring-1 ring-white/10"
+                      >
                         {technology}
                       </span>
                     ))}
@@ -183,98 +275,132 @@ function App() {
           </motion.div>
         </Section>
 
-        <Section id="skills" eyebrow="Skills" title="A practical stack for intelligent secure apps">
+        <Section id="experience" eyebrow="Experience" title="Practical engineering across AI and product delivery">
+          <div className="space-y-5">
+            {experience.map((item) => (
+              <GlassCard key={`${item.role}-${item.company}`} className="p-5 sm:p-6">
+                <div className="flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
+                  <div>
+                    <h3 className="text-xl font-black text-white sm:text-2xl">{item.role}</h3>
+                    <p className="mt-1 text-sm font-semibold uppercase tracking-[0.18em] text-cyan-300">{item.company}</p>
+                  </div>
+                  <span className="rounded-full border border-white/10 bg-white/[0.06] px-3 py-1.5 text-xs font-semibold text-slate-200">
+                    {item.period}
+                  </span>
+                </div>
+                <ul className="mt-5 grid gap-2 sm:grid-cols-2">
+                  {item.focus.map((point) => (
+                    <li key={point} className="flex items-start gap-2 text-sm leading-6 text-slate-300">
+                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-cyan-300" />
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
+              </GlassCard>
+            ))}
+          </div>
+        </Section>
+
+        <Section id="skills" eyebrow="Skills" title="A structured stack for AI, data, and product delivery">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
             variants={container}
-            className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
+            className="grid gap-4 lg:grid-cols-2"
           >
-            {skills.map((skill) => (
-              <motion.div key={skill.title} variants={fadeUp}>
-                <GlassCard className="h-full p-5">
-                  <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-2xl border border-cyan-300/20 bg-cyan-300/10 text-lg font-black text-cyan-200">
-                    {skill.initial}
-                  </div>
-                  <h3 className="text-lg font-bold text-white">{skill.title}</h3>
-                  <p className="mt-3 text-sm leading-6 text-slate-400">{skill.description}</p>
-                </GlassCard>
-              </motion.div>
+            {skills.map((category) => (
+              <SkillCategory key={category.title} category={category} />
             ))}
           </motion.div>
 
           <div className="mt-8 flex flex-wrap gap-3">
             {stackBadges.map((badge) => (
-              <span key={badge} className="rounded-full border border-white/10 bg-white/[0.08] px-4 py-2 text-sm font-medium text-slate-200 backdrop-blur-xl">
+              <span
+                key={badge}
+                className="rounded-full border border-white/10 bg-white/[0.08] px-4 py-2 text-sm font-medium text-slate-200 backdrop-blur-xl"
+              >
                 {badge}
               </span>
             ))}
           </div>
         </Section>
 
-        <Section id="projects" eyebrow="Projects" title="Selected builds with product value">
+        <Section id="projects" eyebrow="Projects" title="Selected builds with product and technical depth">
           <div className="space-y-12">
             {projectCategories.map((category) => (
-              <div key={category.title}>
-                <h3 className="mb-5 text-xl font-black text-white sm:text-2xl">{category.title}</h3>
-                <motion.div
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true, amount: 0.15 }}
-                  variants={container}
-                  className="grid gap-5 md:grid-cols-2"
-                >
-                  {category.projects.map((project) => (
-                    <motion.article key={project.title} variants={fadeUp}>
-                      <GlassCard className="group h-full overflow-hidden transition duration-300 hover:-translate-y-1 hover:border-cyan-200/35">
-                        <a
-                          href={project.url || 'https://github.com/raheshcse?tab=repositories'}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="block h-full p-6"
-                          aria-label={`Open ${project.title} repository on GitHub`}
-                        >
-                        <div className={`mb-6 h-2 w-24 rounded-full bg-gradient-to-r ${project.accent}`} />
-                        <div className="flex items-start justify-between gap-4">
-                          <h3 className="text-2xl font-bold text-white">{project.title}</h3>
-                          <span className="rounded-full border border-white/10 bg-white/[0.08] px-3 py-1 text-xs font-bold text-cyan-100 transition group-hover:border-cyan-200/50 group-hover:text-white">
-                            GitHub
-                          </span>
-                        </div>
-                        <p className="mt-4 text-sm leading-7 text-slate-400">{project.description}</p>
-                        <div className="mt-6 flex flex-wrap gap-2">
-                          {project.tags.map((tag) => (
-                            <span key={tag} className="rounded-full bg-slate-900/80 px-3 py-1 text-xs font-semibold text-cyan-100 ring-1 ring-white/10">
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-                        </a>
-                      </GlassCard>
-                    </motion.article>
-                  ))}
-                </motion.div>
-              </div>
+              <ProjectCategory key={category.title} category={category} />
             ))}
           </div>
         </Section>
 
-        <Section id="contact" eyebrow="Contact" title="Let's build something useful">
+        <Section id="education" eyebrow="Education & Credentials" title="Technical foundations and continuing learning">
+          <div className="grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
+            <GlassCard className="p-6 sm:p-8">
+              <p className="text-sm font-semibold uppercase tracking-[0.22em] text-cyan-300">Education</p>
+              <div className="mt-5 space-y-5">
+                {education.map((item) => (
+                  <div key={`${item.title}-${item.school}`} className="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
+                    <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+                      <div>
+                        <h3 className="text-xl font-black text-white">{item.title}</h3>
+                        <p className="mt-1 text-sm font-semibold text-cyan-200">{item.subtitle}</p>
+                      </div>
+                      <span className="rounded-full border border-white/10 bg-slate-950/80 px-3 py-1 text-xs font-semibold text-slate-300">
+                        {item.period}
+                      </span>
+                    </div>
+                    <p className="mt-3 text-sm text-slate-300">{item.school}</p>
+                  </div>
+                ))}
+              </div>
+            </GlassCard>
+
+            <GlassCard className="p-6 sm:p-8">
+              <p className="text-sm font-semibold uppercase tracking-[0.22em] text-cyan-300">Certifications</p>
+              <div className="mt-5 space-y-4">
+                {certifications.map((item) => (
+                  <div key={`${item.name}-${item.issuer}`} className="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
+                    <h3 className="text-lg font-black text-white">{item.name}</h3>
+                    <p className="mt-2 text-sm text-slate-300">{item.issuer}</p>
+                    <span className="mt-3 inline-flex rounded-full border border-cyan-200/20 bg-cyan-200/[0.06] px-3 py-1 text-xs font-semibold text-cyan-100">
+                      {item.year}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </GlassCard>
+          </div>
+        </Section>
+
+        <Section id="contact" eyebrow="Contact" title="Let's build something useful together">
           <GlassCard className="p-6 sm:p-8">
             <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
               <p className="max-w-2xl text-base leading-8 text-slate-300">
-                I am open to developer roles, internships, collaborations, and project conversations
-                around AI agents, secure full-stack systems, and polished user experiences.
+                I am open to developer roles, internships, collaborations, and project conversations around AI agents,
+                secure full-stack systems, machine learning pipelines, and polished user experiences.
               </p>
               <div className="flex flex-col gap-3 sm:flex-row">
-                <a className="rounded-full bg-white px-6 py-3 text-center text-sm font-bold text-slate-950 transition hover:-translate-y-0.5" href="mailto:raheshsaravanan@gmail.com">
+                <a
+                  className="rounded-full bg-white px-6 py-3 text-center text-sm font-bold text-slate-950 transition hover:-translate-y-0.5"
+                  href="mailto:raheshsaravanan@gmail.com"
+                >
                   Email Me
                 </a>
-                <a className="rounded-full border border-white/15 px-6 py-3 text-center text-sm font-bold text-white transition hover:-translate-y-0.5 hover:border-cyan-200/60" href="https://www.linkedin.com/in/raheshsaravanan/" target="_blank" rel="noreferrer">
+                <a
+                  className="rounded-full border border-white/15 px-6 py-3 text-center text-sm font-bold text-white transition hover:-translate-y-0.5 hover:border-cyan-200/60"
+                  href="https://www.linkedin.com/in/raheshsaravanan/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   LinkedIn
                 </a>
-                <a className="rounded-full border border-white/15 px-6 py-3 text-center text-sm font-bold text-white transition hover:-translate-y-0.5 hover:border-cyan-200/60" href="https://github.com/raheshcse?tab=repositories" target="_blank" rel="noreferrer">
+                <a
+                  className="rounded-full border border-white/15 px-6 py-3 text-center text-sm font-bold text-white transition hover:-translate-y-0.5 hover:border-cyan-200/60"
+                  href="https://github.com/raheshcse?tab=repositories"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   View GitHub
                 </a>
               </div>

@@ -1,96 +1,283 @@
 export const stackBadges = [
-  'React',
-  'ASP.NET Core',
+  'Python',
   'C#',
-  'SQL Server',
+  '.NET',
+  'React',
+  'FastAPI',
+  'LangGraph',
+  'SQL',
   'AI Agents',
-  'Tailwind CSS',
-  'JavaScript',
+  'RAG',
+  'Azure',
+  'CI/CD',
   'Cybersecurity',
+  'React Native',
+  'Playwright',
+]
+
+export const profileHighlights = [
+  'AI Agent Systems',
+  'Full-Stack Applications',
+  'ML & Data Projects',
+  'Mobile Applications',
+  'End-to-End Engineering',
 ]
 
 export const skills = [
   {
-    initial: 'AI',
-    title: 'AI Agent Development',
-    description: 'Planning agents, workflow assistants, prompt-driven automation, and product-ready AI features.',
+    title: 'AI & Intelligent Systems',
+    items: [
+      'Generative AI',
+      'LLMs',
+      'AI Agents',
+      'Multi-Agent Systems',
+      'LangGraph',
+      'RAG',
+      'Embeddings',
+      'Semantic Retrieval',
+      'Prompt Engineering',
+      'Agentic Workflows',
+      'NLP',
+      'AgentOps',
+      'Responsible AI',
+      'AI Governance',
+    ],
   },
   {
-    initial: 'SE',
-    title: 'Secure Engineering',
-    description: 'Security-minded architecture, risk awareness, authentication basics, and defensive development habits.',
+    title: 'Machine Learning & Data',
+    items: [
+      'Python',
+      'Pandas',
+      'Scikit-learn',
+      'TF-IDF',
+      'Logistic Regression',
+      'Isolation Forest',
+      'Anomaly Detection',
+      'Model Evaluation',
+      'Data Pipelines',
+      'ETL / ELT Concepts',
+      'Data Transformation',
+      'Data Quality',
+      'Data Modelling',
+      'Real-Time Data Collection',
+      'SQL',
+    ],
   },
   {
-    initial: 'FS',
-    title: 'Full-Stack Delivery',
-    description: 'React interfaces, ASP.NET Core APIs, C# services, SQL Server data models, and maintainable workflows.',
+    title: 'Backend & API Engineering',
+    items: [
+      'C#',
+      '.NET',
+      'ASP.NET Core',
+      'FastAPI',
+      'Flask',
+      'REST APIs',
+      'SQL Server',
+      'SQLite',
+      'SQLAlchemy',
+      'Systems Integration',
+      'API Design',
+    ],
   },
   {
-    initial: 'UI',
-    title: 'Modern Interfaces',
-    description: 'Responsive layouts, Tailwind systems, polished micro-interactions, and recruiter-friendly presentation.',
+    title: 'Frontend',
+    items: [
+      'React',
+      'JavaScript',
+      'TypeScript',
+      'Chart.js',
+      'Responsive UI Development',
+      'Dashboard Development',
+    ],
+  },
+  {
+    title: 'Mobile',
+    items: [
+      'React Native',
+      'Kotlin',
+      'Jetpack Compose',
+      'Expo',
+      'React Navigation',
+      'MVVM',
+      'StateFlow',
+      'Material 3',
+    ],
+  },
+  {
+    title: 'Testing & Engineering',
+    items: [
+      'pytest',
+      'Playwright',
+      'Automated Testing',
+      'API Testing',
+      'Git',
+      'GitHub',
+      'CI/CD',
+      'Debugging',
+      'Root Cause Analysis',
+    ],
+  },
+  {
+    title: 'Cloud & DevOps',
+    items: ['Azure', 'AWS (Familiar)', 'Vercel', 'Docker Concepts', 'CI/CD Principles'],
+  },
+  {
+    title: 'Data Visualisation & Analytics',
+    items: ['Power BI', 'Chart.js', 'Operational Dashboards', 'Data Analysis', 'Reporting'],
+  },
+  {
+    title: 'Security & Governance',
+    items: ['Cybersecurity', 'Responsible AI', 'Data Governance', 'Privacy-Aware Design', 'Access Control Principles', 'AI Governance'],
+  },
+  {
+    title: 'AI-Assisted Engineering',
+    items: ['Claude', 'GitHub Copilot', 'AI-Assisted Development Workflows'],
   },
 ]
 
-export const profileHighlights = [
+export const experience = [
   {
-    title: 'Professional Summary',
-    items: [
-      'AI & Full Stack Engineer focused on intelligent, secure, and scalable applications.',
-      'Builds practical software across React, ASP.NET Core, C#, SQL Server, JavaScript, and Tailwind CSS.',
-      'Brings cybersecurity principles into product thinking, architecture, and implementation.',
+    role: 'AI Solutions Advisor',
+    company: 'Startup — Freelance',
+    period: '2026 – Present',
+    focus: [
+      'AI opportunity assessment',
+      'Generative AI / AI agent use cases',
+      'Workflow and process analysis',
+      'AI implementation recommendations',
+      'Responsible AI',
+      'Technical documentation',
+      'AI prototypes',
     ],
   },
   {
-    title: 'Education',
-    items: [
-      'Computer Science and Engineering background with a strong foundation in software development.',
-      'Focused learning path across AI systems, full-stack engineering, databases, and cybersecurity.',
+    role: 'AI & Full-Stack Engineer',
+    company: 'node.org.nz — Freelance',
+    period: 'Jul 2026 – Present',
+    focus: [
+      'AI-powered software systems',
+      'AI agents',
+      'RAG systems',
+      'APIs',
+      'Data pipelines',
+      'React dashboards',
+      'Full-stack development',
+      'Testing',
+      'Documentation',
+      'AI-assisted engineering',
     ],
   },
   {
-    title: 'Technical Skills',
-    items: [
-      'Frontend: React, JavaScript, Tailwind CSS, responsive UI design, Framer Motion.',
-      'Backend and data: ASP.NET Core, C#, SQL Server, API-driven application development.',
-      'AI and security: AI agents, monitoring workflows, risk-aware systems, secure development practices.',
+    role: 'Software Engineer Intern',
+    company: 'MVP Studio',
+    period: 'Nov 2025 – Jun 2026',
+    focus: [
+      'C#',
+      '.NET',
+      'React',
+      'SQL Server',
+      'REST APIs',
+      'Enterprise applications',
+      'Debugging',
+      'Testing',
+      'Agile development',
+      'Technical documentation',
     ],
   },
+]
+
+export const education = [
   {
-    title: 'Experience & Projects',
-    items: [
-      'Created AI-based monitoring, supply chain risk, store management, and housing application projects.',
-      'Comfortable turning product ideas into polished interfaces, structured data flows, and maintainable code.',
-      'Strong focus on recruiter-friendly delivery: clear project scope, practical technologies, and visible outcomes.',
-    ],
+    title: 'Master of Information Technology',
+    subtitle: 'Cyber Security',
+    school: 'Whitecliffe College, Auckland',
+    period: 'Mar 2025 – Mar 2026',
+  },
+  {
+    title: 'Bachelor of Computer Science Engineering',
+    subtitle: 'Computer Science & Engineering',
+    school: 'Anna University, India',
+    period: 'Completed 2024',
+  },
+]
+
+export const certifications = [
+  {
+    name: '.NET Full Stack Development',
+    issuer: 'Industry Connect New Zealand',
+    year: '2025',
+  },
+  {
+    name: 'Google Cybersecurity Professional Certificate',
+    issuer: 'Coursera',
+    year: '2025',
   },
 ]
 
 export const projectCategories = [
   {
-    title: 'AI Agent Systems',
+    title: 'AI Agent & Intelligent Systems',
     projects: [
       {
+        title: 'Business Process Discovery Agent',
+        description:
+          'AI-powered business process analysis platform using FastAPI, LangGraph and RAG to ingest documents, retrieve relevant context, and coordinate multi-step workflow discovery.',
+        tags: ['Python', 'FastAPI', 'LangGraph', 'RAG', 'Embeddings', 'SQLite'],
+        accent: 'from-cyan-300 to-sky-500',
+        url: 'https://github.com/raheshcse?tab=repositories',
+      },
+      {
         title: 'Autonomous Financial Coordination System',
-        description: 'A full-stack AI-powered financial governance platform designed to simulate fraud analysis, compliance validation, risk escalation, and executive decision-making using multiple AI agents.',
-        tags: ['React', 'FastAPI', 'LangGraph', 'AI Agents'],
-        accent: 'from-blue-200 to-indigo-600',
+        description:
+          'Multi-agent platform coordinating financial governance workflows, including compliance checks, fraud analysis, risk escalation, and executive decision-making.',
+        tags: ['React', 'FastAPI', 'LangGraph', 'SQLAlchemy', 'SQLite', 'AI Agents'],
+        accent: 'from-blue-300 to-indigo-600',
         url: 'https://github.com/raheshcse/autonomous-financial-coordination-system',
       },
       {
         title: 'Autonomous Procurement Approval Agent',
-        description: 'An AI-powered multi-agent procurement governance system that orchestrates vendor risk analysis, budget validation, approval workflows, escalation handling, and audit monitoring using LangGraph and FastAPI.',
+        description:
+          'AI-driven procurement workflow that evaluates requests, vendor information, budgets, and approval rules through autonomous coordination and policy-aware decision-making.',
         tags: ['Python', 'FastAPI', 'LangGraph', 'AI Agents', 'Workflow Orchestration'],
-        accent: 'from-cyan-300 to-blue-500',
+        accent: 'from-violet-300 to-fuchsia-500',
         url: 'https://github.com/raheshcse/Autonomous-procurement-approval-agent',
       },
       {
         title: 'Supply Chain Risk Agent',
         description:
-          'An AI-powered backend automation system for monitoring supplier risk exposure, generating governance-style operational alerts, and simulating enterprise supply chain risk workflows through API-driven orchestration.',
-        tags: ['FastAPI', 'AI Agents', 'Risk Automation'],
+          'AI-based workflow system for analysing supplier, inventory, procurement, shipment, and compliance risks with governance-oriented operational insight.',
+        tags: ['FastAPI', 'AI Agents', 'Risk Analysis', 'Decision Support'],
         accent: 'from-fuchsia-300 to-rose-500',
         url: 'https://github.com/raheshcse/supply-chain-risk-agent',
+      },
+    ],
+  },
+  {
+    title: 'AI / ML & Data Projects',
+    projects: [
+      {
+        title: 'Customer Feedback Analysis Agent',
+        description:
+          'NLP and ML pipeline that preprocesses customer feedback, extracts features, classifies sentiment, and exposes insights through API-driven analysis.',
+        tags: ['Python', 'Scikit-learn', 'NLP', 'TF-IDF', 'Logistic Regression', 'FastAPI'],
+        accent: 'from-emerald-300 to-teal-500',
+        url: 'https://github.com/raheshcse?tab=repositories',
+      },
+      {
+        title: 'Email Spam Detection',
+        description:
+          'Machine-learning email classification system using text preprocessing, vectorisation, model training, and evaluation to distinguish spam from legitimate messages.',
+        tags: ['Python', 'Scikit-learn', 'NLP', 'Text Classification'],
+        accent: 'from-amber-300 to-orange-500',
+        url: 'https://github.com/raheshcse?tab=repositories',
+      },
+      {
+        title: 'AI-Based System Health Monitoring',
+        description:
+          'Real-time observability platform for CPU, memory and disk metrics with Isolation Forest anomaly detection and operational dashboards.',
+        tags: ['Python', 'Flask', 'Scikit-learn', 'Isolation Forest', 'psutil', 'Chart.js', 'Playwright', 'pytest'],
+        accent: 'from-cyan-300 to-blue-500',
+        url: 'https://github.com/raheshcse/system-health-monitor',
       },
     ],
   },
@@ -100,26 +287,18 @@ export const projectCategories = [
       {
         title: 'Store Management System',
         description:
-          'A full-stack business management application for handling customers, products, stores, and sales with RESTful APIs, SQL Server data storage, and a clean admin dashboard.',
-        tags: ['ASP.NET Core', 'C#', 'React', 'Redux Toolkit', 'SQL Server', 'Azure'],
+          'Full-stack enterprise application supporting store, inventory, customer, and operational workflows across an ASP.NET Core backend and React interface.',
+        tags: ['C#', 'ASP.NET Core', 'React', 'SQL Server', 'REST APIs'],
         accent: 'from-emerald-300 to-teal-500',
         url: 'https://github.com/raheshcse/StoreManagementStudio',
       },
       {
         title: 'AI Bug Explanation Tool',
         description:
-          'A full-stack AI debugging assistant that explains application errors, analyzes stack traces, and turns code snippets into practical troubleshooting guidance.',
-        tags: ['React', 'ASP.NET Core', 'C#', 'AI Integration'],
+          'AI-powered developer assistant that analyses application errors, stack traces, and code snippets to provide root-cause explanations and troubleshooting guidance.',
+        tags: ['ASP.NET Core', 'React', 'Ollama', 'REST APIs'],
         accent: 'from-violet-300 to-fuchsia-500',
         url: 'https://github.com/raheshcse/AI-Bug-Explanation-Tool',
-      },
-      {
-        title: 'AI-Based System Health Monitoring',
-        description:
-          'A real-time system monitoring dashboard that tracks CPU, memory, and disk metrics with AI-based anomaly detection, live visualization, automated API/UI testing, and Flask-powered backend services.',
-        tags: ['Python', 'Flask', 'AI Monitoring', 'Playwright', 'Pytest'],
-        accent: 'from-cyan-300 to-blue-500',
-        url: 'https://github.com/raheshcse/system-health-monitor',
       },
     ],
   },
@@ -129,18 +308,18 @@ export const projectCategories = [
       {
         title: 'SafeStreet Community Patrol Operations Platform',
         description:
-          'A React Native mobile app designed to support patrol volunteers, patrol leaders, and coordinators with patrol assignments, vehicle registration, incident reporting, emergency escalation, patrol activity tracking, and volunteer coordination.',
+          'Mobile platform supporting patrol volunteers, leaders, and coordinators with assignments, vehicle registration, incident reporting, and emergency escalation workflows.',
         tags: ['React Native', 'TypeScript', 'Expo', 'React Navigation'],
         accent: 'from-amber-300 to-rose-500',
         url: 'https://github.com/raheshcse/SafeStreet-Android-App',
       },
       {
-        title: 'Housify App',
+        title: 'Housify AI',
         description:
-          'A smart housing companion platform designed to help New Zealanders manage housing-related services through a single digital experience. The platform provides rental support, maintenance management, utilities guidance, student accommodation assistance, and AI-powered housing support through a modern mobile application.',
+          'Smart housing companion app for rental support, maintenance management, utilities guidance, student accommodation help, and AI-powered housing assistance.',
         tags: ['Kotlin', 'Jetpack Compose', 'MVVM', 'StateFlow', 'Material 3', 'AI Integration'],
         accent: 'from-lime-300 to-emerald-500',
-        url: 'https://github.com/raheshcse/Housify-Android-App',
+        url: 'https://github.com/raheshcse/Housify-Android',
       },
     ],
   },
